@@ -21,6 +21,7 @@ void expand(int id);
 void movetofirst();
 void removefirst();
 int check(int id);
+// as name , it show track from startpoint to goal
 void printroute(int id);
 
 int main(void) {
@@ -53,7 +54,7 @@ void printroute(int id) {
 		}
 		if(closedlist[i].parentid!=0)
 			printroute(closedlist[i].parentid);
-		print("\n");
+		printf("\n");
 		
 }
 int check(int id) {
@@ -83,7 +84,7 @@ void expand(int id) {
 		{1, 2, 3, 5},
 		{2, 4},
 		{3, 6, 7},
-		{5, 4, 8},
+		{5, 4, 7, 8},
 		{6, 5,7},
 		{8, 7, 999},
 		{0}
@@ -111,11 +112,11 @@ void initlist() {
 }
 void printlist() {
 	int i;
-	printf("\OpenList ");
+	printf("\nOpenList ");
 	for(i=0;i<openlistep;++i)
 		printf("%d[%d],", openlist[i].nodeid, openlist[i].parentid);
 	printf("\n");
-		printf("\ClosedList ");
+		printf("\nClosedList ");
 	for(i=0;i<closedlistep;++i)
 		printf("%d[%d],", closedlist[i].nodeid, closedlist[i].parentid);
 	printf("\n");
